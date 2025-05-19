@@ -57,3 +57,78 @@ This project builds and evaluates classifiers on the **Yeast dataset** from the 
 
 ## Repository Structure
 
+Yeast_ML_Classification/
+│
+├── data/ # Raw and preprocessed datasets
+├── notebooks/ # Jupyter notebooks by stage
+│ ├── 01_EDA.ipynb
+│ ├── 02_Preprocessing.ipynb
+│ ├── 03_Training.ipynb
+│ ├── 04_Evaluation.ipynb
+├── models/ # Saved model files (.joblib, .pkl)
+├── results/ # Outputs: plots, confusion matrices, metrics
+├── scripts/ # Reusable functions (optional)
+├── README.md # Project documentation
+└── requirements.txt # Dependencies
+
+---
+
+## Models
+
+The following models are tested and compared:
+
+- **Logistic Regression** (One-vs-Rest strategy)  
+- **Random Forest Classifier** (for robustness and feature importance)  
+- **Support Vector Machine** (linear or RBF kernel)  
+- **k-Nearest Neighbors** (as baseline)
+
+Evaluation is based on:
+- F1-score (macro average)
+- Per-class precision & recall
+- Confusion matrix
+- Optional ROC-AUC curves
+
+---
+
+## Task
+
+- **Input**: 8 numerical features per protein  
+- **Output**: One of 10 subcellular locations  
+- **Evaluation strategy**:  
+  - 5 or 10-fold cross-validation  
+  - Separate test set  
+  - Analysis of learning curves  
+  - Interpretation of confusion matrix
+
+---
+
+## Optional Extensions
+
+To enhance analysis and project quality:
+
+- **Error Analysis**:  
+  Identify and analyze pairs of classes that are frequently confused (e.g., MIT vs. CYT). Plot confusion matrix heatmaps and investigate feature distributions.  
+  > Example: "Are mitochondrial proteins misclassified due to similar signal scores?"
+
+- **Feature importance visualization**:  
+  Extract and rank feature contributions from tree-based models (Random Forest).  
+
+- **Dimensionality reduction for visualization**:  
+  Apply PCA or t-SNE to project data into 2D space and visually inspect class separability.
+
+---
+
+## Author
+
+Martina Castellucci  
+MSc in Bioinformatics (1st year) — University of Bologna  
+Course: Applied Machine Learning Basic (Prof. Daniele Bonacorsi and Luca Clissa, 2025)
+
+---
+
+## Acknowledgments
+
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Yeast)  
+- Applied ML course materials (SBOBINE MACHINE LEARNING.pdf)  
+- GitHub projects by [dcarbini](https://github.com/dcarbini) — reference notebook structure  
+- Base notebooks and guidance from [Google Drive Project Folder](https://drive.google.com/drive/folders/1Uxq0pH5Y-y1x-af4iGqFjkxoZ8IWQhRJ)
