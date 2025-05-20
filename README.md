@@ -7,15 +7,15 @@ This project builds and evaluates classifiers on the **Yeast dataset** from the 
 
 ## Table of Contents
 
-- [Overview](#-overview)
-- [Dataset](#-dataset)
-- [Pipeline](#-pipeline)
-- [Repository Structure](#-repository-structure)
-- [Models](#-models)
-- [Task](#-task)
-- [Optional Extensions](#-optional-extensions)
-- [Author](#-author)
-- [Acknowledgments](#-acknowledgments)
+- [Overview](#overview)
+- [Dataset](#dataset)
+- [Pipeline](#pipeline)
+- [Repository Structure](#repository-structure)
+- [Models](#models)
+- [Task](#task)
+- [Optional Extensions](#optional-extensions)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
