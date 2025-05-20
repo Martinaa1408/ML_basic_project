@@ -17,25 +17,6 @@ This project builds and evaluates classifiers on the **Yeast dataset** from the 
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-# 🧬 Yeast Protein Localization — Machine Learning Project
-
-Predicting the subcellular localization of yeast proteins using supervised machine learning.  
-This project builds and evaluates classifiers on the Yeast dataset from the UCI Machine Learning Repository, focusing on handling class imbalance, evaluating models beyond accuracy, and analyzing feature contributions.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Dataset](#dataset)
-- [Pipeline](#pipeline)
-- [Repository Structure](#repository-structure)
-- [Models](#models)
-- [Task](#task)
-- [Optional Extensions](#optional-extensions)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
 ---
 
 ## Overview
