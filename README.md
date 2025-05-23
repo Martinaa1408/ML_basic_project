@@ -1,140 +1,126 @@
-# Yeast Protein Localization — Machine Learning Project
+# Yeast Protein Localization — Applied Machine Learning Project
 
-Predicting the subcellular localization of yeast proteins using supervised machine learning.  
-This project builds and evaluates classifiers on the **Yeast dataset** from the UCI Machine Learning Repository, focusing on handling **class imbalance**, assessing **model performance**, and supporting **biological feature interpretation**.
+This project explores the use of supervised machine learning techniques to predict the **subcellular localization** of yeast proteins using physicochemical features, addressing challenges such as **multiclass imbalance**, **limited features**, and **fair model evaluation**.  
+
+Built as part of the AML-BASIC course at the University of Bologna.
 
 ---
-
 ## Table of Contents
-
-- [Overview](#overview)
+- [Project Overview](#project-overview)
 - [Dataset](#dataset)
-- [Pipeline](#pipeline)
+- [ML Pipeline](#ml-pipeline)
+- [Results Summary](#results-summary)
+- [Evaluation Details](#evaluation-details)
 - [Repository Structure](#repository-structure)
-- [Models](#models)
-- [Task](#task)
-- [Optional Extensions](#optional-extensions)
+- [Concepts from AML-BASIC](#concepts-from-aml-basic)
+- [Trained Models](#trained-models)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
 ---
 
-## Overview
+## Project Overview
 
-- **Goal**: Predict the localization site of a protein (10 possible classes) based on 8 numeric biological features  
-- **Domain**: Bioinformatics + Machine Learning  
-- **Type of task**: Supervised, multi-class classification  
-- **Challenge**: Highly imbalanced classes, overlapping features  
-- **Key focus**: Robust evaluation (F1-score, ROC/PR curves), model optimization, interpretability
+- **Goal**: Predict one of 10 protein localization classes from 8 numerical features
+- **Type**: Supervised multiclass classification
+- **Challenge**: Strong class imbalance, overlapping feature distributions, limited annotation
+- **Focus**: Evaluation with macro-F1, MCC, ROC/PR curves — not accuracy alone
 
 ---
 
 ## Dataset
 
-- **Source**: [UCI Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)  
-- **Samples**: 1,484 yeast proteins  
-- **Features**: 8 numerical descriptors (e.g. signal sequence score, hydrophobicity)  
-- **Target**: Subcellular localization (10 classes: CYT, NUC, MIT, POX, EXC, VAC, ERL, etc.)
+- **Source**: [UCI Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
+- **Samples**: 1,484 proteins  
+- **Features**: 8 physicochemical descriptors (e.g., signal score, hydrophobicity)  
+- **Classes**: 10 subcellular localizations (e.g., CYT, NUC, MIT, POX, ERL)
 
 ---
 
-## Pipeline
+## ML Pipeline
 
-1. **Exploratory Data Analysis (EDA)**  
-   - Class distribution, feature correlation, imbalance analysis  
-2. **Preprocessing**  
-   - Label encoding, feature scaling (StandardScaler), stratified train/test split  
-   - SMOTE oversampling on underrepresented classes  
-3. **Model Training & Optimization**  
-   - Random Forest (baseline)  
-   - Random Forest with `class_weight="balanced"`  
-   - SMOTE-based training  
-   - GridSearchCV tuning (`n_estimators`, `max_depth`)  
-4. **Evaluation**  
-   - Accuracy, macro & weighted F1-scores  
-   - Per-class precision & recall  
-   - Confusion matrix heatmaps  
-   - ROC and Precision-Recall curves (1-vs-rest)  
-   - Feature importance analysis (bar plot)
+| Phase             | Description |
+|------------------|-------------|
+| **EDA**          | Distribution, correlation, outlier analysis |
+| **Preprocessing**| Standard scaling, label encoding, SMOTE (with dynamic `k_neighbors`) |
+| **Modeling**     | Logistic Regression, Random Forest, SVM, k-NN |
+| **Evaluation**   | Accuracy, Macro-F1, MCC, Confusion Matrix, ROC, PR Curves |
+| **Error Analysis**| Biological interpretation (e.g., MIT↔CYT), limitations of small classes |
+
+---
+
+## Results Summary
+
+| Model              | Accuracy | Macro F1 | Weighted F1 |
+|-------------------|----------|----------|-------------|
+| Baseline RF       | 0.61     | 0.46     | 0.61        |
+| RF + class_weight | 0.63     | 0.49     | 0.61        |
+| RF + SMOTE        | 0.65     | 0.55     | 0.64        |
+| GridSearchCV RF   | **0.67** | **0.58** | **0.66**    |
+
+ROC AUC for frequent classes ≈ 0.80–0.90  
+`ERL` AUC = 1.00 (overfitting due to single test sample)
+
+---
+
+## Evaluation Details
+
+- **Metrics**: macro-F1, MCC, AP (Precision-Recall), AUC (ROC)
+- **Tools**: One-vs-Rest strategy for multi-class ROC/PR curves
+- **Visualizations**: grouped ROC/PR plots (3-class subplots for readability)
+- **Error Analysis**: misclassifications due to feature overlap (e.g., MIT vs CYT)
 
 ---
 
 ## Repository Structure
 
-Yeast_ML_Classification/  
-│  
-├── data/               # Raw and preprocessed datasets  
-├── notebooks/          # Jupyter notebook(s)  
-│   └── yeast_project_Notebook.ipynb  
-├── models/             # Saved model files (.joblib, .pkl)  
-├── results/            # Plots, confusion matrices, evaluation curves  
-├── scripts/            # Reusable helper functions (optional)  
-├── README.md           # Project documentation  
-└── requirements.txt    # Python dependencies
+ML_basic_project/
+├── data/ # Dataset (CSV or .pkl)
+├── models/ # Trained models (.pkl)
+├── notebooks/ # Main notebook
+├── results/ # ROC, PR, confusion matrices
+├── scripts/ # Utility functions (optional)
+├── report/ # Final report (PDF or .tex)
+├── requirements.txt
+└── README.md
+
 
 ---
 
-## Models
+## Concepts from AML-BASIC
 
-The following models are trained and compared:
+This project applies theoretical concepts covered in the course, including:
 
-- **Baseline Random Forest**  
-- **Random Forest with class weights** (`class_weight="balanced"`)  
-- **Random Forest on SMOTE-balanced data**  
-- **GridSearchCV-optimized Random Forest**
+- **Class imbalance handling** → SMOTE, `class_weight`, macro metrics
+- **Model evaluation** → bias-variance trade-off, ROC, PR curves
+- **GridSearchCV** → for controlled hyperparameter optimization
+- **Error analysis** → to interpret model weaknesses in domain context
 
-### Evaluation metrics:
-
-- **Accuracy**  
-- **Macro / weighted F1-score**  
-- **Confusion matrix (multiclass)**  
-- **ROC AUC and Precision-Recall curves** (top 3 classes)
+_All metrics and methods are explained following the lecture notes._
 
 ---
 
-## Task
+## Trained Models
 
-- **Input**: 8 numerical features per protein  
-- **Output**: One of 10 subcellular localization labels  
-- **Evaluation strategy**:  
-  - Train/test split (80/20, stratified)  
-  - Macro-averaged metrics for class imbalance  
-  - Model selection based on GridSearchCV scoring (`f1_macro`)  
-  - Feature importance and interpretability
+All models are saved in `/models` and ready to be reused:
 
----
-
-## Optional Extensions
-
-To enhance analysis and model understanding:
-
-- **Post-hoc error analysis**:  
-  Identify confused class pairs (e.g., MIT vs CYT) using the confusion matrix  
-  > Example: "Are mitochondrial proteins misclassified due to overlapping signal scores?"
-
-- **Feature importance visualization**:  
-  Extract and rank features using `feature_importances_` from Random Forest  
-
-- **Dimensionality reduction** (optional):  
-  Use PCA or t-SNE to visualize class clusters in 2D
+- `model_baseline.pkl`
+- `model_balanced.pkl`
+- `model_smote.pkl`
+- `model_gridsearch.pkl`
 
 ---
 
 ## Author
 
-Martina Castellucci  
-MSc in Bioinformatics (1st year) — University of Bologna  
-Course: *Applied Machine Learning Basic* (Prof. Daniele Bonacorsi and Luca Clissa, 2025)
+**Martina Castellucci**  
+MSc Bioinformatics (1st year) – University of Bologna  
+Course: Applied Machine Learning BASIC – Prof. Bonacorsi, Clissa (2025)
 
 ---
 
 ## Acknowledgments
 
-This project was developed as part of the *Applied Machine Learning Basic* course at the University of Bologna.  
-It applies techniques learned during the course and integrates both theoretical and practical elements.
+- [UCI ML Repository – Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
+- AML course slides and material
+- Reference GitHub notebooks by [dcarbini](https://github.com/dcarbini)
 
-- **Dataset**: [UCI Machine Learning Repository – Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)  
-- **Course Material**: *MACHINE LEARNING.pdf*  
-- **Notebook & outputs**: [Google Drive Project Folder](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)  
-
-Special thanks to **Prof. Daniele Bonacorsi** and **Luca Clissa** for their guidance and teaching.
