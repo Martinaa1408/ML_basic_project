@@ -1,10 +1,9 @@
-# Yeast Protein Localization — Applied Machine Learning Project
+# ML_basic_project – Yeast Protein Localization with Machine Learning
 
-This project explores the use of supervised machine learning techniques to predict the **subcellular localization** of yeast proteins using physicochemical features, addressing challenges such as **multiclass imbalance**, **limited features**, and **fair model evaluation**.  
-
-Built as part of the AML-BASIC course at the University of Bologna.
+This project explores supervised machine learning techniques to predict the **subcellular localization** of yeast proteins using physicochemical features. It addresses the challenges of **class imbalance**, **low-dimensional input**, and **robust model evaluation**, following the principles taught in the AML-BASIC course at the University of Bologna.
 
 ---
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
@@ -12,27 +11,28 @@ Built as part of the AML-BASIC course at the University of Bologna.
 - [Results Summary](#results-summary)
 - [Evaluation Details](#evaluation-details)
 - [Repository Structure](#repository-structure)
-- [Concepts from AML-BASIC](#concepts-from-aml-basic)
-- [Trained Models](#trained-models)
+- [Models](#models)
+- [Installation](#installation)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
+
 ---
 
 ## Project Overview
 
-- **Goal**: Predict one of 10 protein localization classes from 8 numerical features
-- **Type**: Supervised multiclass classification
-- **Challenge**: Strong class imbalance, overlapping feature distributions, limited annotation
-- **Focus**: Evaluation with macro-F1, MCC, ROC/PR curves — not accuracy alone
+- **Goal**: Predict the subcellular localization of yeast proteins
+- **Type**: Multiclass supervised classification
+- **Challenge**: High class imbalance, overlapping feature distributions
+- **Focus**: Interpretability, metric fairness, and model robustness
 
 ---
 
 ## Dataset
 
 - **Source**: [UCI Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
-- **Samples**: 1,484 proteins  
-- **Features**: 8 physicochemical descriptors (e.g., signal score, hydrophobicity)  
-- **Classes**: 10 subcellular localizations (e.g., CYT, NUC, MIT, POX, ERL)
+- **Samples**: 1,484 yeast proteins
+- **Features**: 8 physicochemical descriptors
+- **Classes**: 10 subcellular locations (e.g., CYT, NUC, MIT, POX, ERL)
 
 ---
 
@@ -40,34 +40,34 @@ Built as part of the AML-BASIC course at the University of Bologna.
 
 | Phase             | Description |
 |------------------|-------------|
-| **EDA**          | Distribution, correlation, outlier analysis |
-| **Preprocessing**| Standard scaling, label encoding, SMOTE (with dynamic `k_neighbors`) |
+| **EDA**          | Class distribution, correlation, outlier analysis |
+| **Preprocessing**| Encoding, scaling, SMOTE (with adaptive `k_neighbors`) |
 | **Modeling**     | Logistic Regression, Random Forest, SVM, k-NN |
-| **Evaluation**   | Accuracy, Macro-F1, MCC, Confusion Matrix, ROC, PR Curves |
-| **Error Analysis**| Biological interpretation (e.g., MIT↔CYT), limitations of small classes |
+| **Evaluation**   | Accuracy, Macro-F1, MCC, Confusion Matrix, ROC/PR |
+| **Error Analysis**| Class confusion (e.g., MIT↔CYT), biological insight |
 
 ---
 
 ## Results Summary
 
-| Model              | Accuracy | Macro F1 | Weighted F1 |
-|-------------------|----------|----------|-------------|
-| Baseline RF       | 0.61     | 0.46     | 0.61        |
-| RF + class_weight | 0.63     | 0.49     | 0.61        |
-| RF + SMOTE        | 0.65     | 0.55     | 0.64        |
-| GridSearchCV RF   | **0.67** | **0.58** | **0.66**    |
+| Model               | Accuracy | Macro F1 | Weighted F1 |
+|--------------------|----------|----------|-------------|
+| Logistic Regression| 0.61     | 0.44     | 0.60        |
+| Random Forest       | 0.67     | 0.58     | 0.66        |
+| SVM                | 0.63     | 0.53     | 0.64        |
+| k-NN               | 0.59     | 0.42     | 0.59        |
 
 ROC AUC for frequent classes ≈ 0.80–0.90  
-`ERL` AUC = 1.00 (overfitting due to single test sample)
+ERL AUC = 1.00 (likely overfitting due to 1 test sample)
 
 ---
 
 ## Evaluation Details
 
-- **Metrics**: macro-F1, MCC, AP (Precision-Recall), AUC (ROC)
-- **Tools**: One-vs-Rest strategy for multi-class ROC/PR curves
-- **Visualizations**: grouped ROC/PR plots (3-class subplots for readability)
-- **Error Analysis**: misclassifications due to feature overlap (e.g., MIT vs CYT)
+- **Metrics**: Macro-F1, Weighted-F1, MCC, AUC, Average Precision
+- **Confusion Matrix**: Used to detect class confusion patterns
+- **ROC/PR Curves**: Grouped 3-class subplots for clarity
+- **SMOTE**: Applied with dynamic `k_neighbors` based on minority class size
 
 ---
 
@@ -75,45 +75,48 @@ ROC AUC for frequent classes ≈ 0.80–0.90
 
 `ML_basic_project/`
 
-`data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl)
+`data/` --> Raw and processed datasets (e.g., yeast.csv, splits, .pkl)
 
-`models/` --> Serialized models trained during the notebook (.pkl)
+`models/` --> Trained and serialized models (.pkl or .joblib)
 
-`notebooks/` --> Main Jupyter Notebook containing the full ML pipeline
+`notebooks/` --> Jupyter notebook containing the full ML pipeline
 
-`results/` --> Evaluation outputs (confusion matrices, ROC/PR curves, plots)
+`results/` --> Evaluation outputs: plots, confusion matrices, ROC/PR curves
 
-`scripts/` --> Optional Python scripts for preprocessing or utilities
+`scripts/` --> Python scripts (e.g., preprocessing.py for SMOTE, scaling)
 
-`report/` --> Final written report (.pdf or .tex) for presentation/submission
+`report/` --> Final report (.pdf or .tex) for submission or presentation
 
-`requirements.txt` --> List of required Python packages and versions
+`requirements.txt`--> List of required Python packages
 
-`README.md` -->  This documentation file
+`README.md` --> This documentation file
 
----
-
-## Concepts from AML-BASIC
-
-This project applies theoretical concepts covered in the course, including:
-
-- **Class imbalance handling** → SMOTE, `class_weight`, macro metrics
-- **Model evaluation** → bias-variance trade-off, ROC, PR curves
-- **GridSearchCV** → for controlled hyperparameter optimization
-- **Error analysis** → to interpret model weaknesses in domain context
-
-_All metrics and methods are explained following the lecture notes._
 
 ---
 
-## Trained Models
+## Models
 
-All models are saved in `/models` and ready to be reused:
+The following models were trained, compared, and saved:
 
-- `model_baseline.pkl`
-- `model_balanced.pkl`
-- `model_smote.pkl`
+- **Logistic Regression**
+- **Random Forest** (baseline, balanced, SMOTE, GridSearchCV)
+- **Support Vector Machine**
+- **k-Nearest Neighbors**
+
+All models were evaluated using macro-F1, MCC, and ROC/PR curves.  
+Saved in `models/` as:
+
+- `model_logreg.pkl`
+- `model_randomforest.pkl`
+- `model_svm.pkl`
+- `model_knn.pkl`
 - `model_gridsearch.pkl`
+
+---
+
+## Installation
+
+To recreate the environment, run: `pip install -r requirements.txt`
 
 ---
 
