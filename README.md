@@ -121,6 +121,5 @@ Course: Applied Machine Learning BASIC – Prof. Bonacorsi, Clissa (2025)
 ## Acknowledgments
 
 - [UCI ML Repository – Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
-- AML course slides and material
-- Reference GitHub notebooks by [dcarbini](https://github.com/dcarbini)
+- [AML course slides and material(Google Drive)](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
 
