@@ -75,7 +75,7 @@ ROC AUC for frequent classes ≈ 0.80–0.90
 
 ML_basic_project/
 
-`data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl)
+`data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl) '\n'
 `models/` --> Serialized models trained during the notebook (.pkl)
 `notebooks/` --> Main Jupyter Notebook containing the full ML pipeline
 `results/` --> Evaluation outputs (confusion matrices, ROC/PR curves, plots)
