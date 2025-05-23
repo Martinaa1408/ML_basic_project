@@ -73,7 +73,7 @@ ROC AUC for frequent classes ≈ 0.80–0.90
 
 ## Repository Structure
 
-ML_basic_project/
+`ML_basic_project/`
 
 `data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl) 
 
