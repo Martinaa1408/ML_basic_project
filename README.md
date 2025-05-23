@@ -66,7 +66,7 @@ ERL AUC = 1.00 (likely overfitting due to 1 test sample)
 
 - **Metrics**: Macro-F1, Weighted-F1, MCC, AUC, Average Precision
 - **Confusion Matrix**: Used to detect class confusion patterns
-- **ROC/PR Curves**: Grouped 3-class subplots for clarity
+- **ROC/PR Curves**: Single unified plots displaying all one-vs-rest class comparisons together
 - **SMOTE**: Applied with dynamic `k_neighbors` based on minority class size
 
 ---
