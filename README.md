@@ -75,21 +75,14 @@ ROC AUC for frequent classes ≈ 0.80–0.90
 
 ML_basic_project/
 
-    data/ # Dataset (CSV or .pkl)
-    
-    models/ # Trained models (.pkl)
-    
-    notebooks/ # Main notebook
-    
-    results/ # ROC, PR, confusion matrices
-    
-    scripts/ # Utility functions (optional)
-    
-    report/ # Final report (PDF or .tex)
-    
-    requirements.txt
-    
-    README.md
+`data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl)
+`models/` --> Serialized models trained during the notebook (.pkl)
+`notebooks/` --> Main Jupyter Notebook containing the full ML pipeline
+`results/` --> Evaluation outputs (confusion matrices, ROC/PR curves, plots)
+`scripts/` --> Optional Python scripts for preprocessing or utilities
+`report/` --> Final written report (.pdf or .tex) for presentation/submission
+`requirements.txt` --> List of required Python packages and versions
+`README.md` -->  This documentation file
 
 ---
 
