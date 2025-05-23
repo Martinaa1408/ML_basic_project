@@ -74,15 +74,22 @@ ROC AUC for frequent classes ≈ 0.80–0.90
 ## Repository Structure
 
 ML_basic_project/
-├── data/ # Dataset (CSV or .pkl)
-├── models/ # Trained models (.pkl)
-├── notebooks/ # Main notebook
-├── results/ # ROC, PR, confusion matrices
-├── scripts/ # Utility functions (optional)
-├── report/ # Final report (PDF or .tex)
-├── requirements.txt
-└── README.md
 
+    data/ # Dataset (CSV or .pkl)
+    
+    models/ # Trained models (.pkl)
+    
+    notebooks/ # Main notebook
+    
+    results/ # ROC, PR, confusion matrices
+    
+    scripts/ # Utility functions (optional)
+    
+    report/ # Final report (PDF or .tex)
+    
+    requirements.txt
+    
+    README.md
 
 ---
 
