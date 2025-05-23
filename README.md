@@ -75,7 +75,7 @@ ROC AUC for frequent classes ≈ 0.80–0.90
 
 `ML_basic_project/`
 
-`data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl) 
+`data/` --> Raw and processed datasets (e.g., yeast.csv or yeast.pkl)
 
 `models/` --> Serialized models trained during the notebook (.pkl)
 
