@@ -75,7 +75,7 @@ ERL AUC = 1.00 (likely overfitting due to 1 test sample)
 
 `ML_basic_project/`
 
-`data/` --> Raw and processed datasets (e.g., yeast.names, splits, .pkl)
+`data/` --> Raw and processed datasets (e.g., yeast.data, splits, .pkl)
 
 `models/` --> Trained and serialized models (.pkl or .joblib)
 
