@@ -1,5 +1,5 @@
 Best model: Random Forest (GridSearchCV)
-Accuracy: 0.67
+Accuracy: 0.62
 Macro-F1: 0.58
-Weighted-F1: 0.66
+MCC: 0.51
 All trained models saved in /models/
