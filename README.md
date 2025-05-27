@@ -50,12 +50,12 @@ This project explores supervised machine learning techniques to predict the **su
 
 ## Results Summary
 
-| Model               | Accuracy | Macro F1 | Weighted F1 |
+| Model               | Accuracy | Macro F1 | MCC |
 |--------------------|----------|----------|-------------|
-| Logistic Regression| 0.61     | 0.44     | 0.60        |
-| Random Forest       | 0.67     | 0.58     | 0.66        |
-| SVM                | 0.63     | 0.53     | 0.64        |
-| k-NN               | 0.59     | 0.42     | 0.59        |
+| Logistic Regression| 0.51     | 0.49     | 0.40        |
+| Random Forest      | 0.62     | 0.58     | 0.51        |
+| SVM                | 0.55     | 0.57     | 0.44        |
+| k-NN               | 0.47     | 0.44     | 0.35        |
 
 ROC AUC for frequent classes ≈ 0.80–0.90  
 ERL AUC = 1.00 (likely overfitting due to 1 test sample)
