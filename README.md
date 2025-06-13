@@ -89,6 +89,8 @@ ERL AUC = 1.00 (likely overfitting due to 1 test sample)
 
 `requirements.txt`--> List of required Python packages
 
+`AML_additional.pdf`-->Project compliance guide for AML-BASIC 2025
+
 `README.md` --> This documentation file
 
 
