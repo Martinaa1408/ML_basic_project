@@ -209,8 +209,6 @@ This project was designed to ensure **full reproducibility** across data splits,
 
 - **AML-BASIC Course (2025)** — University of Bologna  
   - Official repo: [Google Drive](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
-  - Notes: *SBOBINE MACHINE LEARNING* (2025 Edition)
-
 ---
 
 ## Author
