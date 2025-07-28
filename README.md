@@ -1,9 +1,13 @@
 # ML_basic_project – Yeast Protein Localization with Machine Learning
 
-[![Run full ML pipeline](https://img.shields.io/badge/GitHub-Run%20full%20ML%20pipeline-grey?logo=github)](https://github.com/) 
-![Pipeline](https://img.shields.io/badge/pipeline-failing-red)
-[![License](https://img.shields.io/badge/License-CC--BY--NC--SA--4.0-orange.svg)](LICENSE.md)
-[![Course Repository](https://img.shields.io/badge/AML--BASIC%20Repo-View-blue)](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
+[![Notebook](https://img.shields.io/badge/Notebook-ipynb-brightgreen?logo=Jupyter)](notebooks/AML_notebook.ipynb)
+[![Scripts](https://img.shields.io/badge/Scripts-Python-blue?logo=python)](scripts/)
+[![Report](https://img.shields.io/badge/Report-PDF-red?logo=adobeacrobatreader)](report/)
+[![Citation](https://img.shields.io/badge/Citation-CFF-lightgrey?logo=academia)]
+[![License](https://img.shields.io/badge/License-CC--BY--NC--SA--4.0-orange?logo=creativecommons)](LICENSE.md)
+[![Requirements](https://img.shields.io/badge/Requirements-Necessary-success?logo=conda)](requirements.txt)
+[![Dataset](https://img.shields.io/badge/Dataset-Yeast-orange?logo=databricks)](https://archive.ics.uci.edu/ml/datasets/Yeast)
+[![Course](https://img.shields.io/badge/AML--BASIC-2025-informational?logo=book)](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
 
 ---
 
@@ -45,7 +49,7 @@ We apply a full machine learning pipeline as outlined in the AML-BASIC lectures,
 
 ---
 
-## ⚙️ Pipeline Summary
+## Pipeline Summary
 
 | Step              | Description |
 |------------------|-------------|
@@ -113,29 +117,29 @@ ML_basic_project/
 
 This project was designed to ensure **full reproducibility** across data splits, models, and metrics. Below are the reproducibility guarantees implemented.
 
-- ✅ **Datasets**
+- **Datasets**
   - Raw dataset available in `/data/raw/`
   - Preprocessed features saved as `.csv` and `.pkl`
   - Stratified train/val/test splits stored with fixed `random_state`
 
-- ✅ **Models**
+- **Models**
   - All trained models (`LogisticRegression`, `RandomForest`, `SVM`, `k-NN`) saved as `.pkl`
   - Best `GridSearchCV` objects persisted for analysis
   - Parameter grids and cross-validation scores are logged
 
-- ✅ **Metrics & Plots**
+- **Metrics & Plots**
   - All performance metrics saved: `accuracy`, `macro-F1`, `MCC`, `ROC-AUC`, `PR-AUC`
   - Confusion matrices saved as both `.png` and `.pdf`
   - ROC and PR curves generated One-vs-Rest for multiclass setting
 
-- ✅ **Pipeline**
+- **Pipeline**
   - Modular preprocessing scripts:
     - Feature filtering
     - Standardization
     - SMOTE augmentation with safe `k_neighbors`
   - Deterministic random seeds across `numpy`, `sklearn`, and `imblearn`
 
-- ✅ **Environment**
+- **Environment**
   - `requirements.txt` provided with pinned versions
   - Compatible with Python 3.10+
   - Ready to be run on local or Colab environments
@@ -144,10 +148,70 @@ This project was designed to ensure **full reproducibility** across data splits,
 
 ## References
 
-- Horton, P., & Nakai, K. (1996). *Subcellular localization of proteins*. [PubMed](https://pubmed.ncbi.nlm.nih.gov/8877510)  
-- Nakai, K., & Kanehisa, M. (1992). *Prediction systems for eukaryotic proteins*. [DOI](https://doi.org/10.1016/S0888-7543(05)80111-9)  
-- **AML-BASIC 2025 Repository**: [Google Drive Course Folder](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)  
-- **Lecture Notes**: *SBOBINE MACHINE LEARNING* – internal course material  
+### Dataset & Problem Domain
+- Horton, P., & Nakai, K. (1996). *A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins*. ISMB. [PubMed](https://pubmed.ncbi.nlm.nih.gov/8877510)
+- UCI Machine Learning Repository – Yeast Dataset: [https://archive.ics.uci.edu/ml/datasets/Yeast](https://archive.ics.uci.edu/ml/datasets/Yeast)
+
+### Machine Learning Models
+
+- **Logistic Regression**  
+  - [scikit-learn doc](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
+  - A linear model for classification, minimizing cross-entropy via L2 regularization.
+
+- **Random Forest**  
+  - [Breiman, 2001](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf): *Random Forests*
+  - [scikit-learn doc](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+  - An ensemble of decision trees using bagging and feature randomness for low-variance predictions.
+
+- **Support Vector Machine (SVM)**  
+  - Cortes, C., & Vapnik, V. (1995). *Support-Vector Networks*. Machine Learning. [DOI](https://doi.org/10.1007/BF00994018)
+  - [scikit-learn doc](https://scikit-learn.org/stable/modules/svm.html)
+  - Maximizes the margin between classes using linear/non-linear kernels.
+
+- **k-Nearest Neighbors (k-NN)**  
+  - [scikit-learn doc](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-classification)
+  - Instance-based learner using Euclidean distance; sensitive to scaling and choice of `k`.
+
+### Evaluation Metrics
+
+- **Matthews Correlation Coefficient (MCC)**  
+  - [Wikipedia](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient)  
+  - A robust metric for imbalanced multiclass classification.
+
+- **Macro-F1 Score**  
+  - [scikit-learn doc](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)
+
+- **ROC & PR Curves**  
+  - Davis, J., & Goadrich, M. (2006). *The Relationship Between Precision-Recall and ROC Curves*. [ICML](https://dl.acm.org/doi/10.1145/1143844.1143874)
+
+### Class Imbalance Handling
+
+- **SMOTE (Synthetic Minority Over-sampling Technique)**  
+  - Chawla, N. V., et al. (2002). *SMOTE: Synthetic Minority Over-sampling Technique*. [DOI](https://doi.org/10.1613/jair.953)
+  - [imbalanced-learn documentation](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html)
+  - Oversamples minority classes by creating synthetic examples using nearest neighbors in feature space.
+
+- **Dynamic SMOTE Neighbors**  
+  - Implemented with safe logic: `k_neighbors` chosen based on minimum class counts in split data.
+
+### Software Stack
+
+- **scikit-learn**  
+  - [https://scikit-learn.org/](https://scikit-learn.org/)
+  - Core machine learning library used for modeling, tuning, and metrics.
+
+- **imbalanced-learn**  
+  - [https://imbalanced-learn.org](https://imbalanced-learn.org/)
+  - SMOTE and sampling strategies for dealing with class imbalance.
+
+- **Python 3.10+**  
+  - Project tested on Python ≥3.10
+
+### Course & Material
+
+- **AML-BASIC Course (2025)** — University of Bologna  
+  - Official repo: [Google Drive](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
+  - Notes: *SBOBINE MACHINE LEARNING* (2025 Edition)
 
 ---
 
