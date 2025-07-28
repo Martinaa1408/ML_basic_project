@@ -1,9 +1,9 @@
 # ML_basic_project – Yeast Protein Localization with Machine Learning
 
+[![Run full ML pipeline](https://img.shields.io/badge/GitHub-Run%20full%20ML%20pipeline-grey?logo=github)](https://github.com/) 
+![Pipeline](https://img.shields.io/badge/pipeline-failing-red)
 [![Notebook](https://img.shields.io/badge/Notebook-ipynb-brightgreen?logo=Jupyter)](notebooks/AML_notebook.ipynb)
 [![Scripts](https://img.shields.io/badge/Scripts-Python-blue?logo=python)](scripts/)
-[![Report](https://img.shields.io/badge/Report-PDF-red?logo=adobeacrobatreader)](report/)
-[![Citation](https://img.shields.io/badge/Citation-CFF-lightgrey?logo=academia)]
 [![License](https://img.shields.io/badge/License-CC--BY--NC--SA--4.0-orange?logo=creativecommons)](LICENSE.md)
 [![Requirements](https://img.shields.io/badge/Requirements-Necessary-success?logo=conda)](requirements.txt)
 [![Dataset](https://img.shields.io/badge/Dataset-Yeast-orange?logo=databricks)](https://archive.ics.uci.edu/ml/datasets/Yeast)
