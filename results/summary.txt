@@ -1,0 +1,7 @@
+Final model performance:
+ - Random Forest: Accuracy = 0.9832, Macro-F1 = 0.9412, MCC = 0.9785
+Model ranking:
+ * Logistic Regression: Macro-F1 = 0.7870
+ * Random Forest: Macro-F1 = 0.9412
+ * SVM (C=5): Macro-F1 = 0.9301
+ * k-NN (k=5): Macro-F1 = 0.6302
