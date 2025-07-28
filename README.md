@@ -1,137 +1,93 @@
 # ML_basic_project – Yeast Protein Localization with Machine Learning
 
-This project explores supervised machine learning techniques to predict the **subcellular localization** of yeast proteins using physicochemical features. It addresses the challenges of **class imbalance**, **low-dimensional input**, and **robust model evaluation**, following the principles taught in the AML-BASIC course at the University of Bologna.
+This project implements a complete supervised learning pipeline for predicting the **subcellular localization of yeast proteins** using physicochemical descriptors. The solution is built following the principles and assignments of the AML-BASIC course (Applied Machine Learning, University of Bologna, 2025), and emphasizes **metric fairness**, **model robustness**, and **class imbalance handling**.
 
 ---
 
 ## Table of Contents
+
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
-- [ML Pipeline](#ml-pipeline)
-- [Results Summary](#results-summary)
-- [Evaluation Details](#evaluation-details)
-- [Repository Structure](#repository-structure)
+- [Pipeline Summary](#pipeline-summary)
+- [Results Overview](#results-overview)
+- [Model Evaluation](#model-evaluation)
+- [Structure](#structure)
 - [Models](#models)
-- [Installation](#installation)
+- [Reproducibility](#reproducibility)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 ---
 
 ## Project Overview
 
-- **Goal**: Predict the subcellular localization of yeast proteins
+- **Goal**: Classify yeast proteins into 10 subcellular compartments
 - **Type**: Multiclass supervised classification
-- **Challenge**: High class imbalance, overlapping feature distributions
-- **Focus**: Interpretability, metric fairness, and model robustness
+- **Focus**: Generalization, interpretability, and handling of imbalanced data
+- **Tools**: scikit-learn, imbalanced-learn, SMOTE, GridSearchCV, ROC/PR analysis
 
 ---
 
 ## Dataset
 
 - **Source**: [UCI Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
-- **Samples**: 1,484 yeast proteins
-- **Features**: 8 physicochemical descriptors
-- **Classes**: 10 subcellular locations (e.g., CYT, NUC, MIT, POX, ERL)
+- **Samples**: 1,484 protein sequences
+- **Features**: 8 numeric attributes (e.g., hydrophobicity, signal peptides)
+- **Classes**: 10 protein localizations (e.g., CYT, MIT, NUC, POX, ERL)
+
+Note: Two features (`pox`, `erl`) were removed due to >99.99% identical values.
 
 ---
 
-## ML Pipeline
+## 🔁 Pipeline Summary
 
 | Phase             | Description |
 |------------------|-------------|
-| **EDA**          | Class distribution, correlation, outlier analysis |
-| **Preprocessing**| Encoding, scaling, SMOTE (with adaptive `k_neighbors`) |
+| **EDA**          | Class distribution, correlation, outlier detection |
+| **Preprocessing**| Feature scaling (`StandardScaler`), train/test split, SMOTE |
+| **Model Tuning** | GridSearchCV for `C` in SVM and `k` in k-NN |
 | **Modeling**     | Logistic Regression, Random Forest, SVM, k-NN |
-| **Evaluation**   | Accuracy, Macro-F1, MCC, Confusion Matrix, ROC/PR |
-| **Error Analysis**| Class confusion (e.g., MIT↔CYT), biological insight |
+| **Evaluation**   | Accuracy, Macro-F1, MCC, Confusion Matrix, ROC-AUC, PR-AUC |
+| **Export**       | Full project structure, trained models, plots, and scripts |
 
 ---
 
-## Results Summary
+## 📊 Results Overview
 
-| Model               | Accuracy | Macro F1 | MCC |
-|--------------------|----------|----------|-------------|
-| Logistic Regression| 0.51     | 0.49     | 0.40        |
-| Random Forest      | 0.62     | 0.58     | 0.51        |
-| SVM                | 0.55     | 0.57     | 0.44        |
-| k-NN               | 0.47     | 0.44     | 0.35        |
+| Model               | Accuracy | Macro F1 | MCC     |
+|--------------------|----------|----------|---------|
+| Logistic Regression| 0.5034    | 0.4960     | 0.3973    |
+| **Random Forest**   | **0.6267** | **0.5740** | **0.5170** |
+| SVM (C=10)          | 0.5822     | 0.5338     | 0.4640    |
+| k-NN (k=5)          | 0.4795    | 0.4583     | 0.3508    |
 
-ROC AUC for frequent classes ≈ 0.80–0.90  
-ERL AUC = 1.00 (likely overfitting due to 1 test sample)
 
----
-
-## Evaluation Details
-
-- **Metrics**: Macro-F1, Weighted-F1, MCC, AUC, Average Precision
-- **Confusion Matrix**: Used to detect class confusion patterns
-- **ROC/PR Curves**: Single unified plots displaying all one-vs-rest class comparisons together
-- **SMOTE**: Applied with dynamic `k_neighbors` based on minority class size
+- Class 2 and 4 showed strong AUC and precision-recall performance.
+- Class 7 consistently underperformed due to low representation and overlap.
 
 ---
 
-## Repository Structure
+## Model Evaluation
 
-`ML_basic_project/`
-
-`data/` --> Raw and processed datasets (e.g., yeast.csv, splits, .pkl)
-
-`models/` --> Trained and serialized models (.pkl or .joblib)
-
-`notebooks/` --> Jupyter notebook containing the full ML pipeline
-
-`results/` --> Evaluation outputs: plots, confusion matrices, ROC/PR curves
-
-`scripts/` --> Python scripts (e.g., preprocessing.py for SMOTE, scaling)
-
-`report/` --> Final report (.pdf or .tex) for submission or presentation
-
-`requirements.txt`--> List of required Python packages
-
-`AML_additional.pdf`-->Project compliance guide for AML-BASIC 2025
-
-`README.md` --> This documentation file
-
+- **Metrics**: Macro-F1, MCC, ROC-AUC, Average Precision
+- **Curves**: Multi-class ROC and PR curves (One-vs-Rest)
+- **Confusion Matrix**: Biological confusion (e.g., MIT↔CYT) interpreted
+- **SMOTE**: Applied adaptively with dynamic `k_neighbors` for minority class safety
 
 ---
 
-## Models
+## Structure
 
-The following models were trained, compared, and saved:
-
-- **Logistic Regression**
-- **Random Forest** (baseline, balanced, SMOTE, GridSearchCV)
-- **Support Vector Machine**
-- **k-Nearest Neighbors**
-
-All models were evaluated using macro-F1, MCC, and ROC/PR curves.  
-Saved in `models/` as:
-
-- `model_logreg.pkl`
-- `model_randomforest.pkl`
-- `model_svm.pkl`
-- `model_knn.pkl`
-- `model_gridsearch.pkl`
-
----
-
-## Installation
-
-To recreate the environment, run: `pip install -r requirements.txt`
-
----
-
-## Author
-
-**Martina Castellucci**  
-MSc Bioinformatics (1st year) – University of Bologna  
-Course: Applied Machine Learning BASIC – Prof. Bonacorsi, Clissa (2025)
-
----
-
-## Acknowledgments
-
-- [UCI ML Repository – Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
-- [AML course slides and material(Google Drive)](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
-
+```bash
+ML_basic_project/
+│
+├── data/         # Raw and processed datasets (.csv, .pkl, splits)
+├── models/       # Trained models (logreg, rf, svm, knn, best)
+├── notebooks/    # Main Jupyter notebook (AML_notebook.ipynb)
+├── results/      # Evaluation outputs: plots, confusion matrices, AUC curves
+├── scripts/      # Preprocessing utilities (scaling, SMOTE, binarization)
+├── report/       # Optional report or PDF submission
+├── LICENSE.md    # Custom CC-BY 4.0 license
+├── requirements.txt
+└── README.md
