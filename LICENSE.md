@@ -1,4 +1,4 @@
-# 📄 Licenses
+# Educational Use License
 
 This repository contains original work developed as part of the project:
 
