@@ -191,18 +191,26 @@ This project was designed to ensure **full reproducibility** across data splits,
 - **Dynamic SMOTE Neighbors**  
   - Implemented with safe logic: `k_neighbors` chosen based on minimum class counts in split data.
 
-### Software Stack
+### Software Stack (Core)
 
-- **scikit-learn**  
-  - [https://scikit-learn.org/](https://scikit-learn.org/)
-  - Core machine learning library used for modeling, tuning, and metrics.
+This project was developed and tested using **Python 3.10+**.
 
-- **imbalanced-learn**  
-  - [https://imbalanced-learn.org](https://imbalanced-learn.org/)
-  - SMOTE and sampling strategies for dealing with class imbalance.
+The core libraries used are:
 
-- **Python 3.10+**  
-  - Project tested on Python ≥3.10
+- **pandas** – for structured data manipulation and DataFrame operations  
+  [https://pandas.pydata.org/](https://pandas.pydata.org/)
+
+- **numpy** – for numerical computing, arrays, and matrix operations  
+  [https://numpy.org/](https://numpy.org/)
+
+- **scikit-learn** – for machine learning models, metrics, preprocessing, and pipeline utilities  
+  [https://scikit-learn.org/](https://scikit-learn.org/)
+
+- **imbalanced-learn** – for handling class imbalance via SMOTE and other resampling strategies  
+  [https://imbalanced-learn.org/](https://imbalanced-learn.org/)
+
+All dependencies are listed in `requirements.txt`, with exact versions for full reproducibility.
+
 
 ### Course & Material
 
