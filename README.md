@@ -34,9 +34,9 @@ This project implements a complete supervised learning pipeline for predicting t
 - **Source**: [UCI Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)
 - **Samples**: 1,484 protein instances  
 - **Classes**: 10 (e.g., CYT, MIT, NUC, POX, VAC, ME1–ME3, ERL, EXC)  
-- **Features**: 8 numeric descriptors (e.g., hydrophobicity, signal peptide scores)
+- **Features**: 8 numeric descriptors (mcg, gvh, alm, mit, erl, pox, vac, nuc)
 
-> Two features (`pox`, `erl`) were removed due to near-zero variance (>99.9% constant).
+> Two features (`pox`, `erl`) were removed due to near-zero variance (>98.5% constant).
 
 ---
 
@@ -59,11 +59,12 @@ This project implements a complete supervised learning pipeline for predicting t
 |--------------------|----------|----------|---------|
 | Logistic Regression| 0.8923   | 0.7870   | 0.8642  |
 | **Random Forest**   | **0.9832** | **0.9412** | **0.9785** |
-| SVM (C=10)          | 0.9832   | 0.9301   | 0.9783  |
+| SVM (C=5)          | 0.9832   | 0.9301   | 0.9783  |
 | k-NN (k=5)          | 0.8182   | 0.6302   | 0.7712  |
 
+
 - **Random Forest** achieved the best overall test performance.  
-- **SVM** with `C=10` was competitive and more stable across folds.  
+- **SVM** with `C=5` was competitive and more stable across folds.  
 - **k-NN** performed best in cross-validation with `k=5`, but underperformed on the test set.
 
 ---
@@ -81,7 +82,7 @@ This project implements a complete supervised learning pipeline for predicting t
 
 ## Project Structure
 
-bash
+```bash
 ML_basic_project/
 │
 ├── data/         # Raw and processed datasets (.csv, .pkl, splits)
@@ -93,7 +94,7 @@ ML_basic_project/
 ├── LICENSE.md    # Custom CC-BY 4.0 license
 ├── requirements.txt
 └── README.md
-
+```
 ---
 
 ## Reproducibility
