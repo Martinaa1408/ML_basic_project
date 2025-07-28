@@ -172,7 +172,7 @@ This project was designed to ensure **full reproducibility** across data splits,
 ### Evaluation Metrics
 
 - **Matthews Correlation Coefficient (MCC)**  
-  - [Wikipedia](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient)  
+  - MCC documentation: [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)
   - A robust metric for imbalanced multiclass classification.
 
 - **Macro-F1 Score**  
