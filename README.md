@@ -149,7 +149,7 @@ This project was designed to ensure **full reproducibility** across data splits,
 ### Dataset & Problem Domain
 - Horton, P., & Nakai, K. (1996). *A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins*. ISMB. [PubMed](https://pubmed.ncbi.nlm.nih.gov/8877510)
 
--### Machine Learning Models
+### Machine Learning Models
 
 - **Logistic Regression**  
   - [scikit-learn doc](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
@@ -169,7 +169,7 @@ This project was designed to ensure **full reproducibility** across data splits,
   - [scikit-learn doc](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-classification)
   - Instance-based learner using Euclidean distance; sensitive to scaling and choice of `k`.
 
--### Evaluation Metrics
+### Evaluation Metrics
 
 - **Matthews Correlation Coefficient (MCC)**  
   - MCC documentation: [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)
@@ -181,7 +181,7 @@ This project was designed to ensure **full reproducibility** across data splits,
 - **ROC & PR Curves**  
   - Davis, J., & Goadrich, M. (2006). *The Relationship Between Precision-Recall and ROC Curves*. [ICML](https://dl.acm.org/doi/10.1145/1143844.1143874)
 
--### Class Imbalance Handling
+### Class Imbalance Handling
 
 - **SMOTE (Synthetic Minority Over-sampling Technique)**  
   - Chawla, N. V., et al. (2002). *SMOTE: Synthetic Minority Over-sampling Technique*. [DOI](https://doi.org/10.1613/jair.953)
@@ -191,7 +191,7 @@ This project was designed to ensure **full reproducibility** across data splits,
 - **Dynamic SMOTE Neighbors**  
   - Implemented with safe logic: `k_neighbors` chosen based on minimum class counts in split data.
 
--### Software Stack
+### Software Stack
 
 - **scikit-learn**  
   - [https://scikit-learn.org/](https://scikit-learn.org/)
@@ -204,7 +204,7 @@ This project was designed to ensure **full reproducibility** across data splits,
 - **Python 3.10+**  
   - Project tested on Python ≥3.10
 
--### Course & Material
+### Course & Material
 
 - **AML-BASIC Course (2025)** — University of Bologna  
   - Official repo: [Google Drive](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
