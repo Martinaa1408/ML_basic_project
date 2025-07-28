@@ -1,40 +1,47 @@
-# Creative Commons Attribution 4.0 International Public License  
-[View Legal Code](https://creativecommons.org/licenses/by/4.0/legalcode)
+# 📄 Licenses
 
-**Project:** Yeast Protein Subcellular Classification Pipeline  
+This repository contains original work developed as part of the project:
+
+**Project title:** *Yeast Protein Classification: Machine Learning Pipeline for Subcellular Localization*  
 **Author:** Martina Castellucci  
-**Affiliation:** University of Bologna  
-**Year:** 2025  
+**Institution:** University of Bologna  
+**Year:** 2025
+
+The project was independently developed by the author using the knowledge and skills acquired in the course *Applied Machine Learning Basic*. It includes code, models, plots, and analyses specifically created for this task.
 
 ---
 
-## Permissions
+## License for this project
 
 You are free to:
 
 - **Share** — copy and redistribute the material in any medium or format  
-- **Adapt** — remix, transform, and build upon the material  
-  for any purpose, even commercially.
+- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
 
-## Under the Following Terms
+As long as you follow these terms:
 
-- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
-  You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **Attribution** — You must give appropriate credit, provide a link to this license, and indicate if changes were made.  
+  You may do so in any reasonable manner, but not in a way that suggests the author endorses you or your use.
 
 - **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
----
+**If used academically, please cite as:**
 
-## Citation Requirement
-
-If you use this project, in whole or in part, for academic purposes such as publications, theses, presentations, or derivative educational materials, please cite as follows:
-
-**Castellucci, Martina.**  
-*Yeast Protein Classification: Machine Learning Pipeline for Subcellular Localization.*  
+**Castellucci, Martina**  
+*Yeast Protein Classification: Machine Learning Pipeline for Subcellular Localization*.  
 University of Bologna, 2025.  
-GitHub: [https://github.com/Martinaa1408/ML_basic_project](https://github.com/Martinaa1408/ML_basic_project)
+GitHub Repository: [github.com/Martinaa1408/ML_basic_project](https://github.com/Martinaa1408/ML_basic_project)
 
 ---
 
-For the full legal license text, please refer to:  
+## License of the dataset used
+
+This project makes use of the **Yeast Dataset** from the **UCI Machine Learning Repository**, which is licensed under:
+
+**Creative Commons Attribution 4.0 International License**
+
+You can find the full legal terms of the dataset license at:  
 [https://creativecommons.org/licenses/by/4.0/legalcode](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+---
+
