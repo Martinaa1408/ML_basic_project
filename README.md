@@ -148,7 +148,6 @@ This project was designed to ensure **full reproducibility** across data splits,
 
 ### Dataset & Problem Domain
 - Horton, P., & Nakai, K. (1996). *A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins*. ISMB. [PubMed](https://pubmed.ncbi.nlm.nih.gov/8877510)
-- UCI Machine Learning Repository – Yeast Dataset: [https://archive.ics.uci.edu/ml/datasets/Yeast](https://archive.ics.uci.edu/ml/datasets/Yeast)
 
 ### Machine Learning Models
 
