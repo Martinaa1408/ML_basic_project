@@ -91,3 +91,34 @@ ML_basic_project/
 ├── LICENSE.md    # Custom CC-BY 4.0 license
 ├── requirements.txt
 └── README.md
+```
+# Protein Localization Prediction - Relevant References
+
+This repository is based on datasets and methods for predicting the subcellular localization of proteins in both prokaryotic and eukaryotic cells. Below are the key references foundational to this work.
+
+---
+
+## 📄 Primary Reference
+
+**Horton, P., & Nakai, K. (1996)**  
+*A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins*  
+Proceedings of the Fourth International Conference on Intelligent Systems for Molecular Biology (ISMB), pp. 109–115.  
+[PDF (AAAI)](https://www.aaai.org/Papers/ISMB/1996/ISMB96-012.pdf)  
+[PubMed](https://pubmed.ncbi.nlm.nih.gov/8877510)
+
+---
+
+## Predecessor Methods (Rule-Based Expert Systems)
+
+### 1. **Nakai, K., & Kanehisa, M. (1991)**  
+*Expert System for Predicting Protein Localization Sites in Gram-Negative Bacteria*  
+Proteins: Structure, Function, and Genetics, 11(2), 95–110.  
+[DOI](https://doi.org/10.1002/prot.340110203)  
+[PubMed](https://pubmed.ncbi.nlm.nih.gov/1946347)
+
+### 2. **Nakai, K., & Kanehisa, M. (1992)**  
+*A Knowledge Base for Predicting Protein Localization Sites in Eukaryotic Cells*  
+Genomics, 14(4), 897–911.  
+[DOI](https://doi.org/10.1016/S0888-7543(05)80111-9)  
+[PubMed](https://pubmed.ncbi.nlm.nih.gov/1478671)
+
