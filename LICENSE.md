@@ -1,4 +1,4 @@
-# Educational Use License
+# Educational Use License - ML_basic_project
 
 This repository contains original work developed as part of the project:
 
