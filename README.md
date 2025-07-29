@@ -7,7 +7,7 @@
 [![Dataset](https://img.shields.io/badge/Dataset-Yeast-orange?logo=databricks)](https://archive.ics.uci.edu/ml/datasets/Yeast)
 [![Course](https://img.shields.io/badge/AML--BASIC-2025-informational?logo=book)](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
 
-<img width="718" height="396" alt="image" src="https://github.com/user-attachments/assets/897b9b88-d037-4b47-a2dc-92e3a4a6b6cb" />
+<img width="861" height="554" alt="image" src="https://github.com/user-attachments/assets/17357998-8eda-4f48-90ba-4ff5b3febaba" />
 
 
 ---
