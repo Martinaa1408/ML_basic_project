@@ -102,9 +102,9 @@ ML_basic_project/
 ├── data/               # Raw and processed data (.csv, .pkl)
 ├── models/             # Trained models and GridSearchCV (.pkl)
 ├── notebooks/          # Jupyter Notebook (AML_notebook.ipynb)
-├── results/            # Confusion matrices, ROC/PR curves, tables
-├── scripts/            # Preprocessing, scaling, SMOTE, training utils
-├── report/             # Final report or presentation (optional)
+├── results/            # Confusion matrices, ROC/PR curves, tables, performance summary
+├── scripts/            # Preprocessing
+├── report/             # Final report
 ├── LICENSE.md          # Custom license (CC BY-NC-SA 4.0)
 ├── requirements.txt    # Exact dependency versions
 └── README.md           # Project overview (you’re here)
