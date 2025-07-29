@@ -177,13 +177,18 @@ This project ensures **full reproducibility** across data splits, models, metric
   - Chawla et al. (2002). *SMOTE: Synthetic Minority Over-sampling Technique*. [DOI](https://doi.org/10.1613/jair.953)  
   - [imbalanced-learn docs](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html)
 
+### Course & Material
+
+- **AML-BASIC Course (2025)** — University of Bologna  
+  - Official repo: [Google Drive](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
+    
 ---
 
 ## Author
 
 Martina Castellucci  
 AML-BASIC 2025 – University of Bologna  
-📧 martina.castellucci@studio.unibo.it
+martina.castellucci@studio.unibo.it
 
 ---
 
