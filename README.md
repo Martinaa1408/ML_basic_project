@@ -21,7 +21,6 @@
 - [Evaluation & Metrics](#evaluation--metrics)
 - [Why These Models?](#why-these-models)
 - [Project Structure](#project-structure)
-- [Reproducibility Checklist](#reproducibility-checklist)
 - [Alignment with AML-BASIC 2025 Course Material](#alignment-with-aml-basic-2025-course-material)
 - [References](#references)
 - [Author](#author)
@@ -178,7 +177,7 @@ Notebook with step-by-step data analysis, model training, and evaluation.
 
 - **`AML_notebook.ipynb`** — Full analysis pipeline in notebook format.  
 
-## requirements.txt
+### requirements.txt
 
 List of Python packages required to run the project.
 
@@ -187,50 +186,12 @@ You can install all dependencies using:
 ```bash
 pip install -r requirements.txt
 ```
-
----
-
-## Reproducibility Checklist
-
-This project ensures **full reproducibility** across data splits, models, metrics, and environment.
-
-### Datasets
-- Raw dataset available in `/data/raw/`
-- Preprocessed features saved as `.csv` and `.pkl`
-- Stratified train/test split stored using fixed `random_state=42`
-
-### Models
-- All trained models saved as `.pkl` (`LogisticRegression`, `RandomForest`, `SVM`, `k-NN`)
-- Best `GridSearchCV` objects persisted and exportable
-- Full hyperparameter grids and validation scores logged
-
-### Metrics & Visualizations
-- All evaluation metrics stored:  
-  `accuracy`, `macro-F1`, `MCC`, `ROC-AUC`, `PR-AUC`
-- Confusion matrices and curves exported as both `.png` and `.pdf`
-- Class-level results for PR/ROC saved for auditability
-
-### Pipeline
-- Modular Python scripts:
-  - Feature filtering
-  - Standardization
-  - SMOTE with dynamic `k_neighbors` logic
-- Deterministic behavior ensured by setting seeds in:
-  - `numpy`
-  - `scikit-learn`
-  - `imbalanced-learn`
-
-### Environment
-- All dependencies frozen in `requirements.txt`
-- Fully compatible with **Python 3.10+**
-- Works on local machines and Google Colab without modification
-
 ---
 ### Alignment with AML-BASIC 2025 Course Material
 
 All components of this project directly reflect the structure and methods taught in AML-BASIC 2025. The dataset used (UCI Yeast) was prepared as in the course notebooks, with low-variance features removed (`pox`, `erl`) and class distribution analyzed. Preprocessing steps—standardization, stratified splitting, and label encoding—followed the Data Preparation guidelines. Class imbalance was handled using SMOTE applied only to the training set, with dynamic `k_neighbors` and selective oversampling, exactly as discussed in the resampling module. The selected models (Logistic Regression, SVM, k-NN, Random Forest) and their tuning procedures (GridSearchCV) mirror the modelling notebooks. Evaluation relied on fairness-aware metrics (Macro-F1, MCC, PR-AUC), as recommended, with a critical discussion of ROC-AUC limitations under imbalance. Finally, the project adheres to all reproducibility and modularity principles emphasized throughout the course. Every decision is consistent with the official AML-BASIC lectures, notebooks, and theoretical material.
-
 ---
+
 ## References
 
 ### Dataset & Problem Domain
