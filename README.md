@@ -111,18 +111,83 @@ The pipeline includes:
 
 ## Project Structure
 
+### data/ — Dataset Folder
+
+This folder contains all the data files used in the project, including the original dataset, preprocessed versions, and train-test splits.
+
+- **`yeast.csv`**  
+  Original raw dataset downloaded from the UCI Machine Learning Repository.  
+  It contains 1,484 proteins, each described by 8 numerical features and a target class representing subcellular localization.
+
+- **`yeast_dataset_processed.csv`**  
+  Preprocessed version of the dataset, with all features cleaned and ready for modeling.  
+  It may include standardized values, encoded labels, or filtered features based on variance or correlation.
+
+- **`yeast_dataset_processed.pkl`**  
+  Same as above, but stored as a serialized Python object using `pickle`.  
+  Useful for fast loading without repeating preprocessing steps.
+
+- **`X_train.csv`, `X_test.csv`**  
+  Feature matrices for training and testing. Each row represents a protein, and each column a numeric feature.
+
+- **`y_train.csv`, `y_test.csv`**  
+  Target labels for training and testing, indicating the protein's subcellular localization class.
+
+### models/ — Trained Models
+
+This folder contains the final models trained during the project, serialized using `pickle` or `joblib`.
+
+- **`model_logreg.pkl`** — Trained Logistic Regression model (baseline).  
+- **`model_randomforest.pkl`** — Trained Random Forest classifier.  
+- **`model_svm.pkl`** — Trained Support Vector Machine model with optimized hyperparameters.  
+- **`model_knn.pkl`** — Trained k-Nearest Neighbors model (k=5).  
+- **`model_gridsearch.pkl`** — `GridSearchCV` object containing cross-validation results and best parameters.
+
+
+### scripts/ — Utility Functions
+
+Python modules used for preprocessing, balancing, and transformations.
+
+- **`preprocessing.py`**  
+  Contains key preprocessing utilities:  
+  - `scale_features(X)` – standardizes features using `StandardScaler`.  
+  - `apply_safe_smote(X, y)` – applies SMOTE with adaptive `k_neighbors` to balance classes.  
+  - `binarize_labels(y, class_labels)` – converts multi-class labels into binary (one-vs-rest) format for multi-label tasks.
+
+### results/ — Visualizations and Evaluation
+
+Visual outputs and summary files used to evaluate model performance.
+
+- **`roc_all_classes.png`** — ROC curves (one-vs-rest) per class using Random Forest. All classes achieve AUC = 1.00.
+- **`pr_all_classes.png`** — Precision-Recall curves for each class. Most classes approach AP = 1.00.
+- **`conf_matrix_rf_real.png`** — Confusion matrix for the Random Forest model, showing excellent classification accuracy.
+- **`class_distribution.png`** — Histogram showing class imbalance across the 10 subcellular location classes.
+- **`model_performance_summary.png`** — Comparison of macro-F1 scores (with error bars) for different models (SVM, k-NN).
+- **`comparison_table.csv`** — Table of evaluation metrics (accuracy, F1, MCC) for all trained models.
+- **`summary.txt`** — Text summary of final model performance. 
+
+### report/ — Final Report
+
+This folder contains the official project report written in LaTeX.
+
+- **`AML_report.pdf`**  — Compiled PDF version of the report.
+
+### notebooks/ — Jupyter Notebook
+
+Notebook with step-by-step data analysis, model training, and evaluation.
+
+- **`AML_notebook.ipynb`** — Full analysis pipeline in notebook format.  
+
+## requirements.txt
+
+List of Python packages required to run the project.
+
+You can install all dependencies using:
+
 ```bash
-ML_basic_project/
-├── data/               # Raw and processed data (.csv, .pkl)
-├── models/             # Trained models and GridSearchCV (.pkl)
-├── notebooks/          # Jupyter Notebook (AML_notebook.ipynb)
-├── results/            # Confusion matrices, ROC/PR curves, tables, performance summary
-├── scripts/            # Preprocessing
-├── report/             # Final report (PDF + .tex)
-├── LICENSE.md          # Custom license (CC BY-NC-SA 4.0)
-├── requirements.txt    # Exact dependency versions
-└── README.md           # Project overview (you’re here)
+pip install -r requirements.txt
 ```
+
 ---
 
 ## Reproducibility Checklist
