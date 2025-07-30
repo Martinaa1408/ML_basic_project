@@ -11,7 +11,23 @@
 <img width="517" height="352" alt="image" src="https://github.com/user-attachments/assets/bca22c0f-1141-4287-ad0d-7b9164722fe2" />
 
 ---
+## Table of Contents
 
+- [Project Overview](#project-overview)
+- [Problem Framing & Pipeline Design](#problem-framing--pipeline-design)
+- [Dataset](#dataset)
+- [Pipeline Summary](#pipeline-summary)
+- [Model Overview](#model-overview)
+- [Evaluation & Metrics](#evaluation--metrics)
+- [Why These Models?](#why-these-models)
+- [Project Structure](#project-structure)
+- [Reproducibility Checklist](#reproducibility-checklist)
+- [Alignment with AML-BASIC 2025 Course Material](#alignment-with-aml-basic-2025-course-material)
+- [References](#references)
+- [Author](#author)
+- [License](#license)
+
+---
 ## Project Overview
 
 This project builds a full machine learning pipeline to classify **yeast proteins** into **10 subcellular compartments** based on numeric sequence features.
@@ -145,7 +161,11 @@ This project ensures **full reproducibility** across data splits, models, metric
 - Works on local machines and Google Colab without modification
 
 ---
+### Alignment with AML-BASIC 2025 Course Material
 
+All components of this project directly reflect the structure and methods taught in AML-BASIC 2025. The dataset used (UCI Yeast) was prepared as in the course notebooks, with low-variance features removed (`pox`, `erl`) and class distribution analyzed. Preprocessing steps—standardization, stratified splitting, and label encoding—followed the Data Preparation guidelines. Class imbalance was handled using SMOTE applied only to the training set, with dynamic `k_neighbors` and selective oversampling, exactly as discussed in the resampling module. The selected models (Logistic Regression, SVM, k-NN, Random Forest) and their tuning procedures (GridSearchCV) mirror the modelling notebooks. Evaluation relied on fairness-aware metrics (Macro-F1, MCC, PR-AUC), as recommended, with a critical discussion of ROC-AUC limitations under imbalance. Finally, the project adheres to all reproducibility and modularity principles emphasized throughout the course. Every decision is consistent with the official AML-BASIC lectures, notebooks, and theoretical material.
+
+---
 ## References
 
 ### Dataset & Problem Domain
