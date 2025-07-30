@@ -110,7 +110,7 @@ The pipeline includes:
 
 ## Project Structure
 
-### data/ — Dataset Folder
+#### data/ — Dataset Folder
 
 This folder contains all the data files used in the project, including the original dataset, preprocessed versions, and train-test splits.
 
@@ -132,7 +132,7 @@ This folder contains all the data files used in the project, including the origi
 - **`y_train.csv`, `y_test.csv`**  
   Target labels for training and testing, indicating the protein's subcellular localization class.
 
-### models/ — Trained Models
+#### models/ — Trained Models
 
 This folder contains the final models trained during the project, serialized using `pickle` or `joblib`.
 
@@ -143,7 +143,7 @@ This folder contains the final models trained during the project, serialized usi
 - **`model_gridsearch.pkl`** — `GridSearchCV` object containing cross-validation results and best parameters.
 
 
-### scripts/ — Utility Functions
+#### scripts/ — Utility Functions
 
 Python modules used for preprocessing, balancing, and transformations.
 
@@ -153,7 +153,7 @@ Python modules used for preprocessing, balancing, and transformations.
   - `apply_safe_smote(X, y)` – applies SMOTE with adaptive `k_neighbors` to balance classes.  
   - `binarize_labels(y, class_labels)` – converts multi-class labels into binary (one-vs-rest) format for multi-label tasks.
 
-### results/ — Visualizations and Evaluation
+#### results/ — Visualizations and Evaluation
 
 Visual outputs and summary files used to evaluate model performance.
 
@@ -167,19 +167,19 @@ Visual outputs and summary files used to evaluate model performance.
 - **`feature_distribution_errors.png`** — Boxplots showing outliers in selected features.
 - **`feature_correlation_matrix.png`** — Heatmap of feature correlations (Pearson).
 
-### report/ — Final Report
+#### report/ — Final Report
 
 This folder contains the official project report written in LaTeX.
 
 - **`AML_report.pdf`**  — Compiled PDF version of the report.
 
-### notebooks/ — Jupyter Notebook
+#### notebooks/ — Jupyter Notebook
 
 Notebook with step-by-step data analysis, model training, and evaluation.
 
 - **`AML_notebook.ipynb`** — Full analysis pipeline in notebook format.  
 
-### requirements.txt
+#### requirements.txt
 
 List of Python packages required to run the project.
 
@@ -189,6 +189,7 @@ You can install all dependencies using:
 pip install -r requirements.txt
 ```
 ---
+
 ### Alignment with AML-BASIC 2025 Course Material
 
 All components of this project directly reflect the structure and methods taught in AML-BASIC 2025. The dataset used (UCI Yeast) was prepared as in the course notebooks, with low-variance features removed (`pox`, `erl`) and class distribution analyzed. Preprocessing steps—standardization, stratified splitting, and label encoding—followed the Data Preparation guidelines. Class imbalance was handled using SMOTE applied only to the training set, with dynamic `k_neighbors` and selective oversampling, exactly as discussed in the resampling module. The selected models (Logistic Regression, SVM, k-NN, Random Forest) and their tuning procedures (GridSearchCV) mirror the modelling notebooks. Evaluation relied on fairness-aware metrics (Macro-F1, MCC, PR-AUC), as recommended, with a critical discussion of ROC-AUC limitations under imbalance. Finally, the project adheres to all reproducibility and modularity principles emphasized throughout the course. Every decision is consistent with the official AML-BASIC lectures, notebooks, and theoretical material.
