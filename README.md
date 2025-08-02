@@ -11,6 +11,7 @@
 <img width="517" height="352" alt="image" src="https://github.com/user-attachments/assets/a95d4826-c323-44ba-bf87-5b7e57fb0401" />
 
 ---
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -26,13 +27,14 @@
 - [License](#license)
 
 ---
+
 ## Project Overview
 
 This project builds a full machine learning pipeline to classify **yeast proteins** into **10 subcellular compartments** based on numeric sequence features.
 
 It demonstrates:
 
-- **Robust model training** on a highly imbalanced multiclass dataset  
+- **Robust model training** on a highly imbalanced dataset with multiple target classes  
 - **Fair performance assessment** using **Macro-F1**, **MCC**, and **PR-AUC**  
 - **Fully reproducible workflow**, from preprocessing and SMOTE resampling to model selection and visualization
 
@@ -45,9 +47,9 @@ The pipeline provides a clear example of **designing and evaluating classifiers*
 This is a **multiclass classification task**, where the input is a vector of numeric protein descriptors and the output is one of 10 subcellular compartments.
 
 The pipeline includes:
-- Feature filtering and scaling
-- SMOTE oversampling with dynamic `k_neighbors`
-- Hyperparameter tuning with `GridSearchCV`
+- Feature scaling and low-variance filtering
+- SMOTE oversampling with dynamic `k_neighbors` applied only to the training set
+- Hyperparameter tuning via `GridSearchCV`
 - Evaluation with metrics robust to imbalance: **Macro-F1**, **MCC**, **PR-AUC**
 
 ---
@@ -56,9 +58,9 @@ The pipeline includes:
 
 - **Source**: [UCI Yeast Dataset](https://archive.ics.uci.edu/ml/datasets/Yeast)  
 - **Instances**: 1,484 yeast proteins  
-- **Classes**: 10 locations (CYT, MIT, NUC, POX, VAC, ME1–ME3, ERL, EXC)  
-- **Features**: 8 numeric descriptors → after removing `pox`, `erl` due to low variance  
-
+- **Classes**: 10 localizations (CYT, MIT, NUC, POX, VAC, ME1–ME3, ERL, EXC)  
+- **Features**: 8 numeric descriptors → 6 retained after removing `pox` and `erl` (low variance)
+- 
 ---
 
 ## Pipeline Summary
