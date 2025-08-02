@@ -28,8 +28,6 @@
 ---
 ## Project Overview
 
-## Project Overview
-
 This project builds a full machine learning pipeline to classify **yeast proteins** into **10 subcellular compartments** based on numeric sequence features.
 
 It demonstrates:
