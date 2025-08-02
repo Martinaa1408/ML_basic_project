@@ -8,6 +8,8 @@
 [![Course](https://img.shields.io/badge/AML--BASIC-2025-informational?logo=book)](https://drive.google.com/drive/folders/1ZrQpF_F9E45yQTO9mG8Izr3LaECVH0aH)
 [![Reproducible](https://img.shields.io/badge/Reproducible-Yes-brightgreen)](requirements.txt)
 
+<img width="517" height="352" alt="image" src="https://github.com/user-attachments/assets/a95d4826-c323-44ba-bf87-5b7e57fb0401" />
+
 <img width="517" height="352" alt="image" src="https://github.com/user-attachments/assets/bca22c0f-1141-4287-ad0d-7b9164722fe2" />
 
 ---
