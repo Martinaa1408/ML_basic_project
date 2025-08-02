@@ -161,11 +161,12 @@ Visual outputs and summary files used to evaluate model performance.
 - **`pr_all_classes.png`** — Precision-Recall curves for each class. Most classes approach AP = 1.00.
 - **`conf_matrix_rf_real.png`** — Confusion matrix for the Random Forest model, showing excellent classification accuracy.
 - **`class_distribution.png`** — Histogram showing class imbalance across the 10 subcellular location classes.
+- **`class_distribution_after_smote.png`** — Histogram of class frequencies in the training set after SMOTE oversampling, showing balanced classes.
+- **`feature_distribution_errors.png`** — Boxplots showing outliers in selected features.
+- **`feature_correlation_matrix.png`** — Heatmap of feature correlations (Pearson).
 - **`model_performance_summary.png`** — Comparison of macro-F1 scores (with error bars) for different models (SVM, k-NN).
 - **`comparison_table.csv`** — Table of evaluation metrics (accuracy, F1, MCC) for all trained models.
 - **`summary.txt`** — Text summary of final model performance.
-- **`feature_distribution_errors.png`** — Boxplots showing outliers in selected features.
-- **`feature_correlation_matrix.png`** — Heatmap of feature correlations (Pearson).
 
 #### report/ — Final Report
 
