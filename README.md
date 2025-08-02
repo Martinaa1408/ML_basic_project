@@ -19,7 +19,6 @@
 - [Pipeline Summary](#pipeline-summary)
 - [Model Overview](#model-overview)
 - [Evaluation & Metrics](#evaluation--metrics)
-- [Why These Models?](#why-these-models)
 - [Project Structure](#project-structure)
 - [Alignment with AML-BASIC 2025 Course Material](#alignment-with-aml-basic-2025-course-material)
 - [References](#references)
@@ -85,7 +84,14 @@ The pipeline includes:
 **Observations**:
 - RF achieved top test metrics across the board  
 - SVM competitive and more stable across folds  
-- k-NN best during CV but weak on generalization  
+- k-NN best during CV but weak on generalization
+
+**Why These Models**?
+
+- **Logistic Regression**: interpretable baseline, low complexity  
+- **Random Forest**: robust, handles non-linearity, low variance  
+- **SVM**: strong generalization, margin maximization  
+- **k-NN**: intuitive but sensitive to scale and `k`  
 
 ---
 
@@ -96,15 +102,6 @@ The pipeline includes:
 - **ROC-AUC** (OvR) and **PR-AUC** curves  
 - **Confusion Matrices**: clear CYT↔MIT and POX↔NUC confusions  
 - **SMOTE**: dynamically adjusted `k_neighbors` for minority classes  
-
----
-
-## Why These Models?
-
-- **Logistic Regression**: interpretable baseline, low complexity  
-- **Random Forest**: robust, handles non-linearity, low variance  
-- **SVM**: strong generalization, margin maximization  
-- **k-NN**: intuitive but sensitive to scale and `k`  
 
 ---
 
