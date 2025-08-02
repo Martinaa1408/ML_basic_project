@@ -79,12 +79,12 @@ The pipeline includes:
 
 ## Technical Stack
 
-➡ **Data Handling**: `pandas`, `NumPy`  
-➡ **Modeling**: `scikit-learn`  
-➡ **Imbalance Handling**: `imbalanced-learn` (SMOTE)  
-➡ **Evaluation & Metrics**: `scikit-learn`  
-➡ **Visualization**: `matplotlib`, `seaborn`  
-➡ **Reproducibility & Export**: `joblib`, `requirements.txt`
+--> **Data Handling**: `pandas`, `NumPy`  
+--> **Modeling**: `scikit-learn`  
+--> **Imbalance Handling**: `imbalanced-learn` (SMOTE)  
+--> **Evaluation & Metrics**: `scikit-learn`  
+--> **Visualization**: `matplotlib`, `seaborn`  
+--> **Reproducibility & Export**: `joblib`, `requirements.txt`
 
 ---
 
