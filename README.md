@@ -116,7 +116,7 @@ The pipeline includes:
 - **Macro-F1**: class-wise balanced F1 average  
 - **Matthews Correlation Coefficient (MCC)**: balanced multiclass correlation  
 - **ROC-AUC** (OvR) and **PR-AUC** curves  
-- **Confusion Matrices**: clear CYT↔MIT and POX↔NUC confusions  
+- **Confusion Matrices**: CYT↔MIT main confusion; ultra-minority POX and ERL often misclassified as CYT or NUC
 - **SMOTE**: dynamically adjusted `k_neighbors` for minority classes  
 
 ---
