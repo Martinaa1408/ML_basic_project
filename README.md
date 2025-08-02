@@ -18,6 +18,7 @@
 - [Problem Framing & Pipeline Design](#problem-framing--pipeline-design)
 - [Dataset](#dataset)
 - [Pipeline Summary](#pipeline-summary)
+- [Technical Stack](#technical-stack)
 - [Model Overview](#model-overview)
 - [Evaluation & Metrics](#evaluation--metrics)
 - [Project Structure](#project-structure)
@@ -76,6 +77,18 @@ The pipeline includes:
 
 ---
 
+## Technical Stack
+
+| Category                     | Library / Tool                 |
+|------------------------------|-------------------------------|
+| **Data Handling**             | `pandas`, `NumPy`              |
+| **Modeling**                  | `scikit-learn`                 | 
+| **Imbalance Handling**        | `imbalanced-learn` (SMOTE)     | 
+| **Evaluation & Metrics**      | `scikit-learn`                 |
+| **Visualization**             | `matplotlib`, `seaborn`        | 
+| **Reproducibility & Export**  | `joblib`, `requirements.txt`   | 
+
+---
 ## Model Overview
 
 | Model               | Accuracy | Macro-F1 |   MCC   |
