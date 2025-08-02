@@ -185,9 +185,11 @@ Notebook with step-by-step data analysis, model training, and evaluation.
 
 List of Python packages required to run the project.
 
-You can install all dependencies using:
+Clone the repository and install the required packages:
 
 ```bash
+git clone https://github.com/Martinaa1408/ML_basic_project.git
+cd ML_basic_project
 pip install -r requirements.txt
 ```
 ---
