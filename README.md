@@ -60,7 +60,7 @@ The pipeline includes:
 - **Instances**: 1,484 yeast proteins  
 - **Classes**: 10 localizations (CYT, MIT, NUC, POX, VAC, ME1–ME3, ERL, EXC)  
 - **Features**: 8 numeric descriptors → 6 retained after removing `pox` and `erl` (low variance)
-- 
+  
 ---
 
 ## Pipeline Summary
