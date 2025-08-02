@@ -28,13 +28,17 @@
 ---
 ## Project Overview
 
+## Project Overview
+
 This project builds a full machine learning pipeline to classify **yeast proteins** into **10 subcellular compartments** based on numeric sequence features.
 
-Developed as part of the **AML-BASIC 2025 course** at the University of Bologna, it emphasizes:
+It demonstrates:
 
-- Robust generalization under severe class imbalance  
-- Fair evaluation with metrics like **Macro-F1** and **MCC**  
-- Full pipeline reproducibility with modular code and frozen dependencies  
+- **Robust model training** on a highly imbalanced multiclass dataset  
+- **Fair performance assessment** using **Macro-F1**, **MCC**, and **PR-AUC**  
+- **Fully reproducible workflow**, from preprocessing and SMOTE resampling to model selection and visualization
+
+The pipeline provides a clear example of **designing and evaluating classifiers** for **biological data with skewed label distributions**.
 
 ---
 
